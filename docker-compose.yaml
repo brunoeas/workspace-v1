@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+  notificador-zap-zap:
+    container_name: notificador-zap-zap
+    image: notificador-zap-zap:latest
+    network_mode: "host"
+    build:
+      context: ../notificador-zap-zap/
+      dockerfile: ../notificador-zap-zap/src/main/docker/Dockerfile.native
+    environment:
+      API_PAGE_ACCESS_TOKEN: EAAPDALN2tKABO6s0Qe7YtcfQUpfcZByGVLg5PM43acPMd7PERQ2teaUZBWCo7go4fZAKhaEGZAdgM4qReDUUas7JaDh2RK1xykVR9hClWKRP07DWCJIdp9UgnIQDQHV8aq6auFe2Fn4VjnaovTyfiRuEpQPi3GZAfO0CkgVa27aVpEJTIqUdZCO5HfFA88fwDoNgZDZD
