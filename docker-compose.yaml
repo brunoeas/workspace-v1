@@ -8,4 +8,21 @@ services:
       context: ../notificador-zap-zap/
       dockerfile: ../notificador-zap-zap/src/main/docker/Dockerfile.native
     environment:
-      API_PAGE_ACCESS_TOKEN: EAAPDALN2tKABO6s0Qe7YtcfQUpfcZByGVLg5PM43acPMd7PERQ2teaUZBWCo7go4fZAKhaEGZAdgM4qReDUUas7JaDh2RK1xykVR9hClWKRP07DWCJIdp9UgnIQDQHV8aq6auFe2Fn4VjnaovTyfiRuEpQPi3GZAfO0CkgVa27aVpEJTIqUdZCO5HfFA88fwDoNgZDZD
+      API_PAGE_ACCESS_TOKEN: "EAAPDALN2tKABO6s0Qe7YtcfQUpfcZByGVLg5PM43acPMd7PERQ2teaUZBWCo7go4fZAKhaEGZAdgM4qReDUUas7JaDh2RK1xykVR9hClWKRP07DWCJIdp9UgnIQDQHV8aq6auFe2Fn4VjnaovTyfiRuEpQPi3GZAfO0CkgVa27aVpEJTIqUdZCO5HfFA88fwDoNgZDZD"
+  
+  sera-que-chove:
+    container_name: sera-que-chove
+    image: sera-que-chove:latest
+    network_mode: "host"
+    build:
+      context: ../sera-que-chove/
+      dockerfile: ../sera-que-chove/Dockerfile
+    environment:
+      TOKEN_API_CLIMATEMPO: "05f381706df7f10ecd6ffab12b5ece41"
+      URL_API_CLIMATEMPO: "http://apiadvisor.climatempo.com.br"
+      SENDER_ID: "7099525940107412"
+      HOST_SERVER_WEBSOCKET: "localhost:8080"
+      # CRON_JOB: "30 8 * * *"
+      CRON_JOB: "* * * * *"
+      PAIS: "BR"
+      REGIAO: "sul"
