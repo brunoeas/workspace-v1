@@ -1,4 +1,4 @@
-version: "3.7"
+version: "3.8"
 services:
   notificador-zap-zap:
     container_name: notificador-zap-zap
@@ -13,13 +13,15 @@ services:
   sera-que-chove:
     container_name: sera-que-chove
     image: sera-que-chove:latest
+    depends_on:
+      - notificador-zap-zap
     network_mode: "host"
     build:
       context: ../sera-que-chove/
       dockerfile: ../sera-que-chove/Dockerfile
     environment:
       TOKEN_API_CLIMATEMPO: "05f381706df7f10ecd6ffab12b5ece41"
-      URL_API_CLIMATEMPO: "http://apiadvisor.climatempo.com.br"
+      URL_API_CLIMATEMPO: "https://apiadvisor.climatempo.com.br"
       SENDER_ID: "7099525940107412"
       HOST_SERVER_WEBSOCKET: "localhost:8080"
       # CRON_JOB: "30 8 * * *"
